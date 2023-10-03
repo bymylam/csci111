@@ -1,22 +1,22 @@
 import java.util.Scanner;
-import java.text.NumberFormat;
+import java.text.NumberFormat; //formart numbers as currency (1)
 
 public class MyLamAssignment4 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(); //(1)
 
         //Food Menu
         double Pizza = 15;
-        String Pizza$ = formatter.format(Pizza);
+        String Pizza$ = formatter.format(Pizza); //(1) changing to currency, which also means that it converts to String
         double Salad = 8;
-        String Salad$ = formatter.format(Salad);
+        String Salad$ = formatter.format(Salad); //(1)
         double Sandwich = 9;
-        String Sandwich$ = formatter.format(Sandwich);
+        String Sandwich$ = formatter.format(Sandwich); //(1)
         double Pasta = 10;
-        String Pasta$ = formatter.format(Pasta);
+        String Pasta$ = formatter.format(Pasta); //(1)
         double Soup = 7;
-        String Soup$ = formatter.format(Soup);
+        String Soup$ = formatter.format(Soup); //(1)
 
         System.out.println("Welcome to the Restaurant");
         System.out.println("Here is our menu:");
@@ -42,7 +42,7 @@ public class MyLamAssignment4 {
             food_price += Soup;
         } else {
             System.out.println("Invalid response, try again later.");
-            System.exit(0);
+            System.exit(0); //used for quitting the program
         }
 
         //---------------------------------------------------------------
