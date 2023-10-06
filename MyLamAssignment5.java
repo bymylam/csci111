@@ -18,19 +18,6 @@ public class MyLamAssignment5 {
         double Soup = 7;
         String Soup$ = formatter.format(Soup);
 
-        //Drink Menu
-        double Soda = 2;
-        String Soda$ = formatter.format(Soda);
-        double Coffee = 3;
-        String Coffee$ = formatter.format(Coffee);
-        double BubbleTea = 6;
-        String BubbleTea$ = formatter.format(BubbleTea);
-        //Toppings for bubble tea
-        double boba = 1;
-        String boba$ = formatter.format(boba);
-        double pudding = 1;
-        String pudding$ = formatter.format(pudding);
-
         System.out.println("Welcome to the Restaurant");
         System.out.println("Here is our menu:");
         System.out.println("-----FOOD-----");
@@ -39,17 +26,12 @@ public class MyLamAssignment5 {
         System.out.println("Sandwich: " + Sandwich$);
         System.out.println("Pasta: " + Pasta$);
         System.out.println("Soup: " + Soup$);
-        System.out.println("Soda: " + Soda$);
-        System.out.println("-----DRINK-----");
-        System.out.println("Coffee: " + Coffee$);
-        System.out.println("Bubble Tea: " + BubbleTea$);
-        System.out.println("--Toppings for bubble tea:" + boba$ + " & " + pudding$);
 
         //-------------------------------------------------------------------------------
         double Subtotal = 0;
 
         //Food Menu
-        System.out.println("What would you like to order?");
+        System.out.println("What food would you like to order?");
         String menuItem = input.next();
         switch (menuItem) {
             case "Pizza":
@@ -71,10 +53,9 @@ public class MyLamAssignment5 {
                 System.out.println("Invalid response, try again later.");
         }
         System.out.println("Would you like anything else? Enter [Y] for yes or [N] for no.");
-
-        String response = input.next();
-        while (response.equalsIgnoreCase("Y")) {
-            System.out.println("What would you like to order?");
+        String response_for_food = input.next();
+        while (response_for_food.equalsIgnoreCase("Y")) {
+            System.out.println("What food would you like to order?");
             menuItem = input.next();
             switch (menuItem) {
                 case "Pizza":
@@ -96,11 +77,29 @@ public class MyLamAssignment5 {
                     System.out.println("Invalid response, try again later.");
             }
             System.out.println("Would you like anything else? Enter [Y] for yes or [N] for no.");
-            response = input.next();
+            response_for_food = input.next();
         }
 
         //------------------------------------------------------------------------------------
         //Drink Menu
+        double Soda = 2;
+        String Soda$ = formatter.format(Soda);
+        double Coffee = 3;
+        String Coffee$ = formatter.format(Coffee);
+        double BubbleTea = 6;
+        String BubbleTea$ = formatter.format(BubbleTea);
+        //Toppings for bubble tea
+        double boba = 1;
+        String boba$ = formatter.format(boba);
+        double pudding = 1;
+        String pudding$ = formatter.format(pudding);
+
+        System.out.println("-----DRINK-----");
+        System.out.println("Soda: " + Soda$);
+        System.out.println("Coffee: " + Coffee$);
+        System.out.println("BubbleTea: " + BubbleTea$);
+        System.out.println("--Toppings for bubble tea are $1.00");
+
         System.out.println("What about the drink? What would you like?");
         String drink = input.next();
         switch (drink) {
@@ -110,12 +109,12 @@ public class MyLamAssignment5 {
             case "Coffee":
                 Subtotal += Coffee;
                 break;
-            case "Bubble Tea":
+            case "BubbleTea":
                 Subtotal += BubbleTea;
                 System.out.println("Would you like to add any toppings? [Y] or [N]");
                 String toppings_yn = input.next();
                 if (toppings_yn.equalsIgnoreCase("Y")) {
-                    System.out.println("We have [Boba] and [Pudding], what would you like?");
+                    System.out.println("We have [Boba] or [Pudding], what would you like?");
                     String toppings_answer = input.next();
                     if (toppings_answer.equalsIgnoreCase("Boba")) {
                         Subtotal += boba;
@@ -141,12 +140,12 @@ public class MyLamAssignment5 {
                 case "Coffee":
                     Subtotal += Coffee;
                     break;
-                case "Bubble Tea":
+                case "BubbleTea":
                     Subtotal += BubbleTea;
                     System.out.println("Would you like to add any toppings? [Y] or [N]");
                     String toppings_yn = input.next();
                     if (toppings_yn.equalsIgnoreCase("Y")) {
-                        System.out.println("We have [Boba] and [Pudding], what would you like?");
+                        System.out.println("We have [Boba] or [Pudding], what would you like?");
                         String toppings_answer = input.next();
                         if (toppings_answer.equalsIgnoreCase("Boba")) {
                             Subtotal += boba;
@@ -165,6 +164,7 @@ public class MyLamAssignment5 {
         }
 
         //-----------------------------------------------------------------------------------
+        System.out.println("-----------------------------------------");
         //SUBTOTAL
         String Subtotal$ = formatter.format(Subtotal);
         System.out.println("Subtotal: " + Subtotal$);
