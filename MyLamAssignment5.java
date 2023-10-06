@@ -18,14 +18,17 @@ public class MyLamAssignment5 {
         double Soup = 7;
         String Soup$ = formatter.format(Soup);
 
-        System.out.println("Welcome to the Restaurant");
-        System.out.println("Here is our menu:");
-        System.out.println("-----FOOD-----");
-        System.out.println("Pizza: " + Pizza$);
-        System.out.println("Salad: " + Salad$);
-        System.out.println("Sandwich: " + Sandwich$);
-        System.out.println("Pasta: " + Pasta$);
-        System.out.println("Soup: " + Soup$);
+        System.out.println("*****                   *****");
+        System.out.println("  Welcome to the Restaurant  ");
+        System.out.println("       Here is our menu:     ");
+        System.out.println("_____________________________");
+        System.out.println("|           FOOD            |");
+        System.out.println("| Pizza.............." + Pizza$ + " |");
+        System.out.println("| Salad..............." + Salad$ + " |");
+        System.out.println("| Sandwich............" + Sandwich$ + " |");
+        System.out.println("| Pasta.............." + Pasta$ + " |");
+        System.out.println("| Soup................" + Soup$ + " |");
+        System.out.println("|___________________________|");
 
         //-------------------------------------------------------------------------------
         double Subtotal = 0;
@@ -82,6 +85,7 @@ public class MyLamAssignment5 {
 
         //------------------------------------------------------------------------------------
         //Drink Menu
+        //variables
         double Soda = 2;
         String Soda$ = formatter.format(Soda);
         double Coffee = 3;
@@ -94,11 +98,15 @@ public class MyLamAssignment5 {
         double pudding = 1;
         String pudding$ = formatter.format(pudding);
 
-        System.out.println("-----DRINK-----");
-        System.out.println("Soda: " + Soda$);
-        System.out.println("Coffee: " + Coffee$);
-        System.out.println("BubbleTea: " + BubbleTea$);
-        System.out.println("--Toppings for bubble tea are $1.00");
+        System.out.println("_____________________________");
+        System.out.println("|           DRINK           |");
+        System.out.println("| Soda................" + Soda$ + " |");
+        System.out.println("| Coffee.............." + Coffee$ + " |");
+        System.out.println("| BubbleTea..........." + BubbleTea$ + " |");
+        System.out.println("|___________________________|");
+        System.out.println("|  TOPPINGS FOR BUBBLE TEA  |");
+        System.out.println("| boba, pudding.......$1.00 |");
+        System.out.println("|___________________________|");
 
         System.out.println("What about the drink? What would you like?");
         String drink = input.next();
@@ -128,10 +136,10 @@ public class MyLamAssignment5 {
             default:
                 System.out.println("Invalid response, try again later.");
         }
-        System.out.println("Anything else? Enter [Y] for yes or [N] for no.");
+        System.out.println("Anything else? [Y] for yes or [N] for no.");
         String response_drink = input.next();
         while (response_drink.equalsIgnoreCase("Y")) {
-            System.out.println("What about the drink? What would you like?");
+            System.out.println("So, what drink would you like?");
             drink = input.next();
             switch (drink) {
                 case "Soda":
@@ -178,5 +186,9 @@ public class MyLamAssignment5 {
         double total = Subtotal + tax;
         String total$ = formatter.format(total);
         System.out.println("Tax : " + total$);
+
+        System.out.println("-----------------------------------------");
+        System.out.println("Thank you for using our service.");
+        System.out.println("Have a good day! :))");
     }
 }
