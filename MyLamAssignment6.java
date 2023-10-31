@@ -17,30 +17,33 @@ public class MyLamAssignment6 {
         File file = new File(inputName);
         Scanner input = new Scanner(file);
 
-        //SUM & COUNT
-        int count = 0;
-        int sum = 0;
-        while (input.hasNextInt()) {
-            count++;
-            double x = input.nextInt();
-            sum += x;
-        }
-
-        //MIN & MAX
-        int val  = 0;
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        while (input.hasNextInt()) {
-            val = input.nextInt();
-            if (val > max) { //max
-                max = val;
+        int count = 1;
+        double min = input.nextDouble();
+        double max = min;
+        double sum = min;
+        while (input.hasNext()) {
+            String val = input.next();
+            try {
+                double valNumber = Double.parseDouble(val);
+                // COUNT
+                count++;
+                // SUM
+                sum += valNumber;
+                // MIN
+                if (min > valNumber) {
+                    min = valNumber;
+                }
+                // MAX
+                if (max < valNumber) {
+                    max = valNumber;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Sorry, this is not a number");
+                continue;
             }
-            if (val < min) { //min
-                min = val;
-            }
         }
-
-        //AVERAGE
+        input.close();
+//        AVERAGE
         double average = sum/count;
 
         String outputName = "output.txt";
@@ -51,6 +54,5 @@ public class MyLamAssignment6 {
         createOutput.println("Count: " + count);
         createOutput.println("Average: " + average);
         createOutput.close();
-
     }
 }
