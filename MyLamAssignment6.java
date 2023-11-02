@@ -41,7 +41,6 @@ public class MyLamAssignment6 {
             if (max < val) {
                 max = val;
             }
-            input.close();
         }
 
         //AVERAGE
