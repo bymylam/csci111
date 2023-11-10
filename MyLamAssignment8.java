@@ -1,54 +1,83 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class MyLamAssignment8 {
-    public static void main(String[] arggs) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner(System.in);
-        System.out.println("What type of shape would you like the area of?");
-        System.out.println("Options: Rectangle, Triangle, Circle");
-        String response = scan.nextLine();
-        if (response.equalsIgnoreCase("Rectangle")) {
-            System.out.println("The area of the rectangle is " + rectangleArea());
-        } else if (response.equalsIgnoreCase("Triangle")) {
-            System.out.println("The area of the triangle is " + triangleArea());
-        } else if (response.equalsIgnoreCase("Circle"));
-            System.out.println("The area of the circle is " + circleArea());
+        String conResponse;
+
+        //print out into the file
+        String outputName = "output.txt";
+        PrintWriter createOutput = new PrintWriter(outputName);
+
+        //while loops is used for continuing asking
+        do {
+            System.out.println("What type of shape would you like the area of?");
+            System.out.println("Options: Rectangle, Triangle, Circle");
+            String shape = scan.nextLine();
+            //print out into the file txt
+            createOutput.println("The chosen shape is " + shape);
+            if (shape.equalsIgnoreCase("Rectangle")) {
+                double answer = rectangleArea(height(),width());
+                //print out into the file txt
+                createOutput.println("The area of the rectangle is " + answer);
+            } else if (shape.equalsIgnoreCase("Triangle")) {
+                double answer = triangleArea(height(),width());
+                //print out into the file txt
+                createOutput.println("The area of the triangle is " + answer);
+            } else if (shape.equalsIgnoreCase("Circle")) {
+                double answer = circleArea(radius());
+                //print out into the file txt
+                createOutput.println("The area of the circle is " + answer);
+            }
+            System.out.println("Is there any shape would you like the area of?");
+            System.out.println("[YES] or [NO]");
+            conResponse = scan.nextLine();
+        } while (conResponse.equalsIgnoreCase("Yes"));
+
+        //close the file txt
+        createOutput.close();
     }
 
-    //RECTANGLE
-    public static double rectangleArea() {
-        Scanner scan1 = new Scanner(System.in);
-        System.out.println("Please enter the rectangle height: ");
-        double height = scan1.nextDouble();
-        System.out.println("Please enter the rectangle width: ");
-        double width = scan1.nextDouble();
 
-        //Rectangle Area
+    //height
+    public static double height() {
+        Scanner h = new Scanner(System.in);
+        System.out.println("Please enter the height of the shape: ");
+        double height = h.nextDouble();
+        return height;
+    }
+
+    //width
+    public static double width() {
+        Scanner w = new Scanner(System.in);
+        System.out.println("Please enter the width of the shape: ");
+        double width = w.nextDouble();
+        return width;
+    }
+
+    //radius
+    public static double radius() {
+        Scanner r = new Scanner(System.in);
+        System.out.println("Please enter the radius: ");
+        double radius = r.nextDouble();
+        return radius;
+    }
+
+    //RECTANGLE AREA
+    public static double rectangleArea(double height, double width) {
         double result = height*width;
         return result;
-
     }
 
-    //TRIANGLE
-    public static double triangleArea() {
-        Scanner scan2 = new Scanner(System.in);
-        System.out.println("Please enter the triangle height: ");
-        double height = scan2.nextDouble();
-        System.out.println("Please enter the triangle width: ");
-        double width = scan2.nextDouble();
-
-        //Triangle Area
+    //TRIANGLE AREA
+    public static double triangleArea(double height, double width) {
         double result = (height*width)/2;
         return result;
     }
 
-    //CIRCLE
-    public static double circleArea() {
-        Scanner scan3 = new Scanner(System.in);
-        System.out.println("Please enter the circle radius: ");
-        double radius = scan3.nextDouble();
-
-        //Circle Area
+    //CIRCLE AREA
+    public static double circleArea(double radius) {
         double result = Math.PI*radius*radius;
         return result;
     }
