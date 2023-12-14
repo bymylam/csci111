@@ -1,0 +1,7 @@
+The entered height: 10.8
+The entered width: 10.8
+The area of rectangle: 116.64000000000001
+
+*****ANOTHER AREA CALCULATION*****
+The entered radius: 3.0
+The area of circle: 28.274333882308138
